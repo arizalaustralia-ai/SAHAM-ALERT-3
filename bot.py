@@ -56,11 +56,16 @@ def check_rss(url, source_name):
         feed = feedparser.parse(url)
         news = []
         
-        # --- UBAH SEMENTARA: Ambil 2 berita teratas TANPA filter keyword ---
+        # --- KEMBALIKAN KE KEYWORD FOKUS ---
+        business_keywords = ["merambah", "diversifikasi", "lini bisnis baru", "fokus baru", "bidang usaha baru", "akuisisi nikel", "ekspansi ke", "transformasi bisnis"]
+        
         for entry in feed.entries[:2]: 
             title = entry.title
             link = entry.link
-            news.append(f"📰 <b>{source_name}:</b> {title}\n<a href='{link}'>Baca</a>")
+            
+            # Cek apakah judul berita mengandung kata kunci perubahan bisnis
+            if any(keyword in title.lower() for keyword in business_keywords):
+                news.append(f"📰 <b>{source_name}:</b> {title}\n<a href='{link}'>Baca</a>")
         return news
     except Exception as e:
         print(f"Error RSS {source_name}: {e}")
