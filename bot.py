@@ -59,11 +59,14 @@ def check_rss(url, source_name):
         # --- KEMBALIKAN KE KEYWORD FOKUS ---
         business_keywords = ["merambah", "diversifikasi", "lini bisnis baru", "fokus baru", "bidang usaha baru", "backdoor", "ekspansi ke", "transformasi bisnis", "HMETD", "kepemilikan", "pengendali", "konglo", "laporan keuangan", "corporate action", "target price", "laba"]
         
-        for entry in feed.entries[:2]: 
+     for entry in feed.entries[:2]: 
             title = entry.title
             link = entry.link
             
-            # Cek apakah judul berita mengandung kata kunci perubahan bisnis
+            # --- Tambahkan baris ini untuk melihat log di GitHub ---
+            print(f"Mengecek judul: {title}")
+            # -----------------------------------------------------
+            
             if any(keyword in title.lower() for keyword in business_keywords):
                 news.append(f"📰 <b>{source_name}:</b> {title}\n<a href='{link}'>Baca</a>")
         return news
