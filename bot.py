@@ -57,7 +57,7 @@ def check_rss(url, source_name):
         news = []
         
         # --- KEMBALIKAN KE KEYWORD FOKUS ---
-        business_keywords = ["merambah", "diversifikasi", "lini bisnis baru", "fokus baru", "bidang usaha baru", "backdoor", "ekspansi ke", "transformasi bisnis"]
+        business_keywords = ["merambah", "diversifikasi", "lini bisnis baru", "fokus baru", "bidang usaha baru", "backdoor", "ekspansi ke", "transformasi bisnis", "HMETD", "kepemilikan", "pengendali", "konglo", "laporan keuangan", "LK", "corporate action", "target price", "laba"]
         
         for entry in feed.entries[:2]: 
             title = entry.title
